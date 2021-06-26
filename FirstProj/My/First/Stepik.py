@@ -4,8 +4,6 @@ Created on 26 июн. 2021 г.
 
 @author: Bourne
 '''
-from audioop import reverse
-
 
 def first():
 	print("first")
