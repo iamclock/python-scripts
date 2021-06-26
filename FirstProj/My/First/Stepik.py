@@ -58,12 +58,12 @@ def fourth():
 # 	exec("print( 'Високосный' if ( not {0}%4 and {0}%100 ) or ( not {0}%400 ) else 'Обычный' )".format(int(input())))
 	return 0
 
-def fifth():
-	a, b, c = (int(input()) for _ in range(3))
+def fifth(a, b, c): # gerron
+# 	a, b, c = (int(input()) for _ in range(3))
 	p = (a + b + c)/2
-	print( (p * (p-a) * (p-b) * (p-c))**0.5 )
+	return( (p * (p-a) * (p-b) * (p-c))**0.5 )
 # 	exec("print(((({0}+{1}+{2})/2)*(({0}+{1}+{2})/2-{0})*(({0}+{1}+{2})/2-{1})*(({0}+{1}+{2})/2-{2}))**(1/2))".format(float(input()),float(input()),float(input())))
-	return 0
+# 	return 0
 
 def sixth1():
 	x = int(input())
@@ -95,6 +95,53 @@ def seventh():
 	
 	return 0
 
+def eighth():
+	
+	
+	
+	return 0
+
+def nineth():
+	variables = []
+	pi, i, S = 3.14, 0, 1
+	type_ = input()
+	while True:
+		variables.append(int(input()))
+		i += 1
+		if type_ == "круг" and i == 1:
+			S = pi*variables[0]**2
+			break
+		elif type_ == "прямоугольник" and i == 2:
+			for x in variables:
+				S *= float(x)  
+			break
+		elif type_ == "треугольник" and i == 3:
+			p = (variables[0] + variables[1] + variables[2])/2
+			S = (p * (p-variables[0]) * (p-variables[1]) * (p-variables[2]))**0.5 # S = fifth(variables[0], variables[1], variables[2])
+			break
+	print(S)
+	return 0
+
+def nineth2():
+	pi = 3.14
+	type_ = input()
+	if type_ == "круг":
+		print(pi*int(input())**2)
+	elif type_ == "прямоугольник":
+		print(int(input())*int(input()))
+	elif type_ == "треугольник":
+		a,b,c = int(input()), int(input()), int(input())
+		p = (a + b + c)/2
+		print((p * (p-a) * (p-b) * (p-c))**0.5)
+	return 0
+
+def nineth3():
+	figure = {'треугольник': [3, lambda a, b, c: ((a+b+c)/2*((a+b+c)/2-a)*((a+b+c)/2-b)*((a+b+c)/2-c))**0.5], 
+	          'прямоугольник': [2, lambda a, b: a*b], 
+	          'круг': [1, lambda r: 3.14*r**2]}
+	f = input()
+	print(figure[f][1](*(float(input()) for _ in range(figure[f][0]))))
+	return 0
 
 if __name__ == '__main__':
 # 	pass
@@ -104,7 +151,8 @@ if __name__ == '__main__':
 # 	fourth()
 # 	fifth()
 # 	sixth1()
-	seventh()
+# 	seventh()
+	nineth()
 	
 	
 	
