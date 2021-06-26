@@ -1,0 +1,113 @@
+'''
+
+Created on 26 июн. 2021 г.
+
+@author: Bourne
+'''
+
+
+def first():
+	print("first")
+	return 0
+
+
+def second():
+	x = 5
+	y = 10
+	print(y > x * x or y >= 2 * x and x < y)
+	return 0
+
+
+'''
+Sample Input 1:
+
+6
+10
+8
+Sample Output 1:
+
+Это нормально
+Sample Input 2:
+
+7
+9
+10
+Sample Output 2:
+
+Пересып
+Sample Input 3:
+
+7
+9
+2
+Sample Output 3:
+
+Недосып
+'''
+
+def third():
+	a, b, h = (int(input()) for _ in range(3))
+# 	print('Недосып'*(h < a) + 'Пересып'*(h > b) + 'Это нормально'*((a-1) < h and (b+1) > h))
+	print("Недосып" if h < a else "Пересып" if h > b else "Это нормально")
+# 	print(("Недосып", "Это нормально", "Пересып")[(h > b) - (h < a) + 1])
+	return 0
+
+def fourth():
+	x = int(input())
+	print("Високосный" if (  ( x%100 and (not x%4) ) or (not x%400) ) else "Обычный")
+# 	exec("print( 'Високосный' if ( not {0}%4 and {0}%100 ) or ( not {0}%400 ) else 'Обычный' )".format(int(input())))
+	return 0
+
+def fifth():
+	a, b, c = (int(input()) for _ in range(3))
+	p = (a + b + c)/2
+	print( (p * (p-a) * (p-b) * (p-c))**0.5 )
+# 	exec("print(((({0}+{1}+{2})/2)*(({0}+{1}+{2})/2-{0})*(({0}+{1}+{2})/2-{1})*(({0}+{1}+{2})/2-{2}))**(1/2))".format(float(input()),float(input()),float(input())))
+	return 0
+
+def sixth1():
+	x = int(input())
+	try:
+		assert (-15 < x not in [13, 14, 17, 18])
+	except AssertionError:
+		print(False)
+		return 0 # sys.exit(0)
+	print(True)
+	return 0
+
+def sixth2():
+	x = int(input())
+	print(x > -15 and not (x in [13, 14, 17, 18]))
+	print( (x in range(-14, 13)) or (x in range(15, 17)) or (x >= 19) )
+	print((lambda x: (-15 < x < 13) or (14 < x < 17) or x > 18)(int(input())))
+	exec("print( {0} > -15 and not ({0} in [13, 14, 17, 18]) )".format(int(input())))
+# 	print(-15 < int(input()) not in[13, 14, 17, 18])
+	return 0
+
+def seventh():
+	a = int(input())
+	try:
+		b = int(input())
+	except ZeroDivisionError:
+		print("Деление на 0!")
+	
+	
+	
+	return 0
+
+
+if __name__ == '__main__':
+# 	pass
+# 	first()
+# 	second()
+# 	third()
+# 	fourth()
+# 	fifth()
+# 	sixth1()
+	seventh()
+	
+	
+	
+	
+	
+	

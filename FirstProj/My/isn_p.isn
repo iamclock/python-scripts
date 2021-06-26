@@ -1,0 +1,29 @@
+#!/usr/bin/python
+
+from subprocess import Popen, PIPE
+import time
+
+tcpdump = Popen(
+	"tcpdump -l -i lo -c10000 'dst port 80 and (tcp[tcpflags] & (tcp-syn) != 0)' | sed -r -e 's/.*seq\s([0-9]*),.*/\\1/g' > log.txt", 
+	shell=True,
+	stderr=PIPE, 
+)
+
+for i in range(20000):
+#	time.sleep(0.005)
+	nc = Popen(
+		"nc -w 0 127.0.0.1 80",
+		shell=True,
+		stdout=PIPE, stderr=PIPE
+	)
+
+time.sleep(1)
+
+average = Popen(
+	"cat log.txt | awk 'f += $1; { printf (\"Average = %i \", f/NR) }' | tail -1; echo",
+	shell=True, 
+)
+
+time.sleep(1)
+
+
