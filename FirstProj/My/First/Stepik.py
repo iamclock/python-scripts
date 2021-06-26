@@ -4,6 +4,7 @@ Created on 26 июн. 2021 г.
 
 @author: Bourne
 '''
+from audioop import reverse
 
 
 def first():
@@ -101,7 +102,7 @@ def eighth():
 	
 	return 0
 
-def nineth():
+def ninth():
 	variables = []
 	pi, i, S = 3.14, 0, 1
 	type_ = input()
@@ -122,7 +123,7 @@ def nineth():
 	print(S)
 	return 0
 
-def nineth2():
+def ninth2():
 	pi = 3.14
 	type_ = input()
 	if type_ == "круг":
@@ -135,12 +136,45 @@ def nineth2():
 		print((p * (p-a) * (p-b) * (p-c))**0.5)
 	return 0
 
-def nineth3():
+def ninth3():
 	figure = {'треугольник': [3, lambda a, b, c: ((a+b+c)/2*((a+b+c)/2-a)*((a+b+c)/2-b)*((a+b+c)/2-c))**0.5], 
 	          'прямоугольник': [2, lambda a, b: a*b], 
 	          'круг': [1, lambda r: 3.14*r**2]}
 	f = input()
 	print(figure[f][1](*(float(input()) for _ in range(figure[f][0]))))
+	return 0
+
+def tenth():
+	arr = []
+	for i  in range(3):
+		arr.append(int(input()));
+	arr.sort(reverse=True)
+# 	arr[1], arr[2] = arr[2], arr[1]
+	arr[1] ^= arr[2]
+	arr[2] ^= arr[1]
+	arr[1] ^= arr[2]
+	for obj in arr:
+		print(obj)
+	return 0
+
+def tenth_alternatives():
+	a, b, c = int(input()), int(input()), int(input())
+	max_int = max(a, b, c)
+	min_int = min(a, b, c)
+	print(max_int)
+	print(min_int)
+	print((a + b + c) - max_int - min_int)
+	##
+	arr = []
+	for i  in range(3):
+		arr.append(int(input()));
+	arr.sort(reverse=True)
+	print(arr[0], arr[2], arr[1], sep='\n')
+	##
+	x=sorted([int(input()),int(input()),int(input())])
+	print (x[2], x[0], x[1], sep="\n")
+	##
+	print("{2}\n{0}\n{1}".format(*sorted([int(input()) for i in range(3)])))
 	return 0
 
 if __name__ == '__main__':
@@ -152,7 +186,8 @@ if __name__ == '__main__':
 # 	fifth()
 # 	sixth1()
 # 	seventh()
-	nineth()
+# 	ninth()
+	tenth()
 	
 	
 	
