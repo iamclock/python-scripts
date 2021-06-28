@@ -5,6 +5,9 @@ Created on 26 июн. 2021 г.
 @author: Bourne
 '''
 
+
+
+
 def first():
 	print("first")
 	return 0
@@ -175,6 +178,26 @@ def tenth_alternatives():
 	print("{2}\n{0}\n{1}".format(*sorted([int(input()) for i in range(3)])))
 	return 0
 
+def eleventh():
+	is_zero = 0
+	seq = list(input())
+	seq[1],seq[4] = seq[4],seq[1]
+	for i in range(len(seq)):
+		is_zero += int(seq[i])*((-1)**i)
+	print("Счастливый" if not is_zero else "Обычный")
+	return 0
+
+def eleventh2():
+	n = list(map(int, list(input())))
+	print('Счастливый' if sum(n[:3]) == sum(n[3:]) else 'Обычный')
+	##
+	ans = {False: 'Счастливый', True : 'Обычный'}
+	b,c,d,e,f,g = (int(n) for n in input())
+	print(ans[bool((b+c+d)-(e+f+g))])
+	return 0
+
+
+
 if __name__ == '__main__':
 # 	pass
 # 	first()
@@ -185,7 +208,8 @@ if __name__ == '__main__':
 # 	sixth1()
 # 	seventh()
 # 	ninth()
-	tenth()
+# 	tenth()
+	eleventh()
 	
 	
 	
