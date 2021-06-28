@@ -196,6 +196,33 @@ def eleventh2():
 	print(ans[bool((b+c+d)-(e+f+g))])
 	return 0
 
+def twelvth1():
+# 	correct pronounce solution
+	count = input()
+	count_tmp = "0"+count # добавляем ведущий 0 в начало для случаев, когда попалось одноразрядное число
+	n = len(count_tmp)
+	print(	 count+(
+			 " программистов" if count_tmp[n-1] > '4' or count_tmp[n-2] == '1' or count_tmp[n-1] == '0'
+		else " программист" if count_tmp[n-1] == '1'
+		else " программиста"))
+	return 0
+
+def twelvth():
+# 	correct pronounce solution
+	count = "0"+input() # добавляем ведущий 0 в начало для случаев, когда попалось одноразрядное число
+	print("{} программист{}".format(count[1:], 
+			 "ов" if count[-1] > '4' or count[-2] == '1' or count[-1] == '0'
+		else "" if count[-1] == '1'
+		else "а"))
+	return 0
+
+def twelvth3():
+	x = input()
+	if int(x[-2:]) in range(11, 15):
+		print('{} программистов'.format(x))
+	else:
+		print('{} программист{}'.format(x, '' if int(x[-1]) == 1 else 'а' if 1 < int(x[-1]) < 5 else 'ов'))
+	return 0
 
 
 if __name__ == '__main__':
@@ -209,8 +236,8 @@ if __name__ == '__main__':
 # 	seventh()
 # 	ninth()
 # 	tenth()
-	eleventh()
-	
+# 	eleventh()
+	twelvth()
 	
 	
 	
