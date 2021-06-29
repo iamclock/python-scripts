@@ -182,8 +182,8 @@ def eleventh():
 	is_zero = 0
 	seq = list(input())
 	seq[1],seq[4] = seq[4],seq[1]
-	for i in range(len(seq)):
-		is_zero += int(seq[i])*((-1)**i)
+	for el in seq: # element
+		is_zero = int(el)+is_zero*(-1)
 	print("Счастливый" if not is_zero else "Обычный")
 	return 0
 
@@ -236,8 +236,8 @@ if __name__ == '__main__':
 # 	seventh()
 # 	ninth()
 # 	tenth()
-# 	eleventh()
-	twelvth()
+	eleventh()
+# 	twelvth()
 	
 	
 	
