@@ -10,15 +10,13 @@ def lcg(a, x ,c, m):
 
 def gcd(a, b):
 	if (a < b):
-		t = b
-		b = a
-		a = t
+		a,b = b,a
 	r = b
 	while r > 0:
 		b = r
 		r = a % b
 		a = b
-	print("gcd = " + str(b))
+	print("gcd = ", str(b))
 
 def gen_lcg():
 	#x = 10
