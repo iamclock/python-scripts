@@ -4,6 +4,7 @@ Created on 26 июн. 2021 г.
 
 @author: Bourne
 '''
+import sys
 
 
 
@@ -224,6 +225,110 @@ def twelvth3():
 		print('{} программист{}'.format(x, '' if int(x[-1]) == 1 else 'а' if 1 < int(x[-1]) < 5 else 'ов'))
 	return 0
 
+def thirdteenth():
+	op1,op2,met = (input() for _ in range(3))
+	op1,op2 = float(op1),float(op2)
+	if met == "div":
+		try:
+			print(op1//op2)
+		except ZeroDivisionError:
+			print("Деление на 0!")
+# 			sys.exit(0)
+	elif met == "mod":
+		try:
+			print(op1 % op2)
+		except ZeroDivisionError:
+			print("Деление на 0!")
+# 			sys.exit(0)
+	elif met == '/':
+		try:
+			print(op1/op2)
+		except ZeroDivisionError:
+			print("Деление на 0!")
+# 			sys.exit(0)
+	elif met == "pow":
+		print(pow(op1, op2))
+	elif met == '+':
+		print(op1 + op2)
+	elif met == '-':
+		print(op1 - op2)
+	elif met == '*':
+		print(op1 * op2)
+	return 0
+
+
+def thirdteenth_alt():
+	first = float(input())
+	second = float(input())
+	action = input()
+	operations = {"mod": "%", "div": "//", "pow": "**"}
+	try:
+		print(eval("(" + str(first) + ")" + operations.get(action, action) + str(second)))
+	except ZeroDivisionError:
+		print('Деление на 0!')
+	##
+	a, b = float(input()), float(input())
+	print({
+	'+':   a + b,
+	'-':   a - b,
+	'*':   a * b,
+	'/':   a / b if b != 0 else "Деление на 0!",
+	'mod': a % b if b != 0 else "Деление на 0!",
+	'pow': a ** b,
+	'div': a // b if b != 0 else "Деление на 0!"
+	}[input()])
+	return 0
+
+
+def matrix():
+	n = []
+	m = []
+	for _ in range(2): n.append(int(input()))
+	for _ in range(2): m.append(int(input()))
+	n = list(dict.fromkeys(n))
+	m = list(dict.fromkeys(m))
+	print(' ', end='\t')
+	for j in range(m[0], (m[-1]+1)):
+		print(j, end='\t')
+	for i in range(n[0], (n[-1]+1)):
+		print('\n', i, end='\t')
+		for j in range(m[0], (m[-1]+1)):
+			print(i*j, end='\t')
+	return 0
+
+def matrix_alt():
+	a=int(input())
+	b=int(input())
+	c=int(input())
+	d=int(input())
+	
+	print('\t', *range(c, d+1), sep='\t')
+	for i in range(a,b+1):
+		print(i, *range(i*c,(i*d)+1, i), sep='\t')
+	return 0
+
+def fourteenth():
+	a,b = int(input()), int(input())
+	a += -a%3
+	b -= b%3
+	print((a+b)/2)
+	return 0
+
+def fifteenth():
+	s = input()
+	count = 1
+	cur = None
+	for i,cur in enumerate(s[:-1]):
+		if cur == s[i+1]: count += 1
+		else:
+			print(cur, count, end='', sep='')
+			count = 1
+	print(s[-1], count, end='', sep='')
+# 	prev = cur
+	
+	
+	
+	return 0
 
 if __name__ == '__main__':
 # 	pass
@@ -236,8 +341,15 @@ if __name__ == '__main__':
 # 	seventh()
 # 	ninth()
 # 	tenth()
-	eleventh()
+# 	eleventh()
 # 	twelvth()
+# 	thirdteenth()
+# 	matrix()
+	fifteenth()
+	
+	
+	
+	
 	
 	
 	
