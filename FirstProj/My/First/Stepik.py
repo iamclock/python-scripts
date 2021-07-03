@@ -4,7 +4,6 @@ Created on 26 июн. 2021 г.
 
 @author: Bourne
 '''
-import sys
 
 
 
@@ -325,10 +324,41 @@ def fifteenth():
 			count = 1
 	print(s[-1], count, end='', sep='')
 # 	prev = cur
-	
-	
-	
 	return 0
+
+# 4 -1 9 3
+# calculating sum of numbers from input
+def sixteenth():
+# 	sum = 0
+# 	for i in input().split():
+# 		sum += int(i)
+# 	print(sum)
+	print(sum(int(i) for i in input().split()))
+	return 0
+
+# ! 1 3 5 6 10
+# ! 10
+# calculating sum of neighbor elements of array from input
+def seventeenth():
+	seq = [int(i) for i in input().split()]
+	m = len(seq)
+	if m > 1:
+		[print(seq[(i-1)%m]+seq[(i+1)%m], end=' ') for i in range(m)]
+	else:
+		print(seq[0])
+	return 0
+
+# ! 4 8 0 3 4 2 0 3
+# ! 10
+# ! 1 1 2 2 3 3
+# ! 1 1 1 1 1 2 2 2
+# output elements from input that meets twice
+def eightteenth():
+	seq = list([int(i) for i in input().split()])
+	seq.sort()
+	[print(seq[i], end=' ') for i in range(len(seq)) if seq[i:].count(seq[i]) == 2]
+	return 0
+
 
 if __name__ == '__main__':
 # 	pass
@@ -345,12 +375,10 @@ if __name__ == '__main__':
 # 	twelvth()
 # 	thirdteenth()
 # 	matrix()
-	fifteenth()
-	
-	
-	
-	
-	
+# 	fifteenth()
+#  	sixteenth()
+#  	seventeenth()
+	eightteenth()
 	
 	
 	
