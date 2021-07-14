@@ -240,8 +240,213 @@ def twentyfirst_alt():
 	print(*idx) if idx else print("Отсутствует")
 	return 0
 
+
+'''
+9 5 3
+0 7 -1
+-5 2 9
+end
+###############
+1
+end
+'''
+def twentytwo():
+	matr=[]
+	x = input()
+	while 'end' not in x:
+		matr.append([int(i) for i in x.split()])
+		x = input()
+	
+	mLength, strLength = len(matr), len(matr[0])
+# 	curObjNeighSum = 0
+	for i in range(mLength):
+		for j in range(strLength):
+# 			if j+1 > strLength-1: curObjNeighSum += matr[i][0]
+# 			else: curObjNeighSum += matr[i][j+1]
+# 			
+# 			if j-1 < 0: curObjNeighSum += matr[i][strLength-1]
+# 			else: curObjNeighSum += matr[i][j-1]
+# 			
+# 			if i+1 > mLength-1: curObjNeighSum += matr[0][j]
+# 			else: curObjNeighSum += matr[i+1][j]
+# 			
+# 			if i-1 < 0: curObjNeighSum += matr[mLength-1][j]
+# 			else: curObjNeighSum += matr[i-1][j]
+			print(	matr[i][j-1] + matr[i][j+1-strLength] + 
+					matr[i-1][j] + matr[i+1-mLength][j],
+					end=' ')
+# 			curObjNeighSum = 0
+		print()
+	
+	# for i in matr: print(*i)
+	return 0
+
+
+def twentythree_for_odd():
+	for i in (i for i in (range(1,(n >> 1))) if i < j):
+		matr[i], matr[j] = matr[j], matr[i]
+		i += 1
+		j -= 1
+	return 0
+
+#Вывод матрицы спиралью
+'''
+5
+1 2 3 4 5
+16 17 18 19 6
+15 24 25 20 7
+14 23 22 21 8
+13 12 11 10 9
+'''
+def twentythree():
+	n = 5 #int(input())
+	matr = [[0]*n for i in range(n)]
+	offset = 0
+	curSide = n
+	l = 1
+	while offset < (n/2):
+		print(offset, curSide)
+		for i in range(curSide):
+			matr[offset][offset+i] = l
+			l += 1
+		
+		print("first")
+		print(*[matr[i] for i in range(n)], sep='\n')
+		print()
+		
+		for i in range(curSide-2):
+			matr[1+offset+i][n-offset-1] = l
+			l += 1
+		
+		print("second")
+		print(*[matr[i] for i in range(n)], sep='\n')
+		print()
+		
+		if (n//2 - offset) > 0:
+			for i in range(curSide):
+				matr[n-1-offset][n-offset-1-i] = l
+				l += 1
+		
+		print("third")
+		print(*[matr[i] for i in range(n)], sep='\n')
+		print()
+		
+		for i in range(curSide-2):
+			matr[n-2-offset-i][offset] = l
+			l += 1
+		
+		print("fourth")
+		print(*[matr[i] for i in range(n)], sep='\n')
+		print()
+		
+		offset += 1
+		curSide -= 2
+	
+	# print(*[matr[i] for i in range(n)], sep='\n')
+	for i in range(n): print(*matr[i])
+	return 0
+
+
+
+def twentythree_alt1():
+	n=int(input())
+	t=[[0]*n for i in range (n)]
+	i,j=0,0
+	for k in range(1, n*n+1):
+		t[i][j]=k
+		if k==n*n: break
+		if i<=j+1 and i+j<n-1: j+=1
+		elif i<j and i+j>=n-1: i+=1
+		elif i>=j and i+j>n-1: j-=1
+		elif i>j+1 and i+j<=n-1: i-=1
+	for i in range(n):
+		print(*t[i])
+	return 0
+
+def twentythree_alt2():
+	x,i,j=1,0,0; n=int(input())
+	a=[[0]*n for i in range (n)]
+	a[n//2][n//2]=n**2
+	for s in range (n//2):
+		for rotate in range (4):
+			for j in range (n-1-s*2):
+				a[i+s][j+s]=x
+				x=x+1
+			a=[[a[i][j] for i in range(n)] for j in range (n-1,-1,-1)]
+	for i in a:
+		print(*i)
+	return 0
+
+def twentythree_alt3():
+	n = int(input())
+	m = [[0] * n for i in range(n)]
+	i, j, di, dj = 0, 0, 0, 1
+	for k in range(n * n):
+		m[i][j] = k + 1
+	if (not -1 < i + di < n) or (not -1 < j + dj < n) or m[i + di][j + dj] != 0:
+		di, dj = dj, -di
+	i, j = i + di, j + dj
+	[print(*i) for i in m]
+	return 0
+
+def twentythree_alt4():
+	n = int(input())
+	m = [[0 for i in range(n)] for j in range(n)]
+	for k in range(n, 0, -1): 
+		for j in range(n-k, k):
+			m[n-k][j] = m[n-k][j-1] + 1
+		for i in range(n-k, k-1): 
+			m[i+1][k-1] = m[i][k-1] + 1    
+		for j in range(k-2, n-k-1, -1):
+			m[k-1][j] = m[k-1][j+1] + 1     
+		for i in range(k-2, n-k, -1): 
+			m[i][n-k] = m[i+1][n-k] + 1
+		for i in m:
+			print(*i)
+	return 0
+
+def twentythree_alt5():
+	n = int(input())
+	for i in range (n):
+		for j in range(n):
+			k = min (i, j, n - i - 1, n - j - 1)
+			if i <= j:
+				print (4 * k * (n - k) + j - k + i - k + 1, end = ' ')
+			else:
+				print (2 * (2 * (n - 2 * k) - 1) + 4 * k * (n - k) - (j - k + i - k + 1), end = ' ')
+		print()
+	return 0
+
+def twentythree_alt6():
+	n = int(input())
+	num = [[0] * n for y in range(n)]
+	y, x, dy, dx = 0, 0, 0, 1
+	
+	for k in range(n*n):
+		num[y][x] = k+1
+		if (y+dy not in range(-1,n)or    #не столбец
+			x+dx not in range(-1,n)or    #не строка
+			num[y + dy][x + dx] > 0):    #следующая занята
+				dx, dy = -dy, dx              #то - переприсваивание
+		y, x = y + dy, x + dx
+	
+	[print(*i) for i in num]
+	return 0
+
+def twentythree_alt7():
+	
+	return 0
+
+# Инициализировать матрицу нулями
+def cr_clean_matrix():
+	n = 5
+	matr1 = [[0]*n for i in range(n)]
+	matr2 = [[0 for i in range(n)] for j in range(n)]
+	return 0
+
+
 if __name__ == '__main__':
-	pass
+# 	pass
 # 	thirdteenth()
 # 	matrix()
 # 	fifteenth()
@@ -250,7 +455,8 @@ if __name__ == '__main__':
 # 	eightteenth()
 # 	nineteenth()
 # 	twentieth()
-	twentyfirst()
+# 	twentyfirst()
+	twentytwo()
 	
 	
 	
