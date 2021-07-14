@@ -251,8 +251,7 @@ end
 end
 '''
 def tenth():
-	matr=[]
-	x = input()
+	matr, x = [], input()
 	while 'end' not in x:
 		matr.append([int(i) for i in x.split()])
 		x = input()
