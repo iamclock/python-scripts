@@ -26,7 +26,7 @@ def findLcm():
 	print(x*y//lcm(x,y))
 	return 0
 
-def thirdteenth():
+def first():
 	op1,op2,met = (input() for _ in range(3))
 	op1,op2 = float(op1),float(op2)
 	if met == "div":
@@ -58,7 +58,7 @@ def thirdteenth():
 	return 0
 
 
-def thirdteenth_alt():
+def first_alt():
 	first = float(input())
 	second = float(input())
 	action = input()
@@ -108,14 +108,14 @@ def matrix_alt():
 		print(i, *range(i*c,(i*d)+1, i), sep='\t')
 	return 0
 
-def fourteenth():
+def second():
 	a,b = int(input()), int(input())
 	a += -a%3
 	b -= b%3
 	print((a+b)/2)
 	return 0
 
-def fifteenth():
+def third():
 	s = input()
 	count = 1
 	cur = None
@@ -130,7 +130,7 @@ def fifteenth():
 
 # 4 -1 9 3
 # calculating sum of numbers from input
-def sixteenth():
+def fourth():
 # 	sum = 0
 # 	for i in input().split():
 # 		sum += int(i)
@@ -141,7 +141,7 @@ def sixteenth():
 # ! 1 3 5 6 10
 # ! 10
 # calculating sum of neighbor elements of array from input
-def seventeenth():
+def fifth():
 	seq = [int(i) for i in input().split()]
 	m = len(seq)
 	if m > 1:
@@ -155,7 +155,7 @@ def seventeenth():
 # ! 1 1 2 2 3 3
 # ! 1 1 1 1 1 2 2 2
 # output elements from input that meets twice
-def eightteenth():
+def sixth():
 	seq = list([int(i) for i in input().split()])
 	seq.sort()
 	[print(seq[i], end=' ') for i in range(len(seq)) if seq[i:].count(seq[i]) == 2]
@@ -171,7 +171,7 @@ def eightteenth():
 4
 -8
 '''
-def nineteenth():
+def seventh():
 	sum_, sumOfSquares = 0, 0
 	while True:
 		x = int(input())
@@ -182,7 +182,7 @@ def nineteenth():
 	return 0
 
 # 7
-def twentieth():
+def eighth():
 	n = int(input())
 	l = 0
 	if not n: print(n)
@@ -193,7 +193,7 @@ def twentieth():
 			l += 1
 	return 0
 
-def twentieth_alt():
+def eighth_alt():
 	n = int(input())
 	a = []
 	i = 0
@@ -212,7 +212,7 @@ def twentieth_alt():
 10
 '''
 # Вывод индексов искомого объекта
-def twentyfirst():
+def nineth():
 	lst, x = input().split(), input()
 	is_found = False
 	for i,val in enumerate(lst):
@@ -223,7 +223,7 @@ def twentyfirst():
 		print("Отсутствует")
 	return 0
 
-def twentyfirst_alt():
+def nineth_alt():
 	l, n = [int(i) for i in input().split()], int(input())
 	print(*[x for x in range(len(l)) if l[x]==n] if n in l else ["Отсутствует"])
 	##
@@ -250,7 +250,7 @@ end
 1
 end
 '''
-def twentytwo():
+def tenth():
 	matr=[]
 	x = input()
 	while 'end' not in x:
@@ -281,8 +281,8 @@ def twentytwo():
 	# for i in matr: print(*i)
 	return 0
 
-
-def twentythree_for_odd():
+# сохранил на будущее метод обхода массива 
+def eleventh_trash():
 	for i in (i for i in (range(1,(n >> 1))) if i < j):
 		matr[i], matr[j] = matr[j], matr[i]
 		i += 1
@@ -298,7 +298,7 @@ def twentythree_for_odd():
 14 23 22 21 8
 13 12 11 10 9
 '''
-def twentythree():
+def eleventh():
 	n = 5 #int(input())
 	matr = [[0]*n for i in range(n)]
 	offset = 0
@@ -348,7 +348,7 @@ def twentythree():
 
 
 
-def twentythree_alt1():
+def eleventh_alt1():
 	n=int(input())
 	t=[[0]*n for i in range (n)]
 	i,j=0,0
@@ -363,7 +363,7 @@ def twentythree_alt1():
 		print(*t[i])
 	return 0
 
-def twentythree_alt2():
+def eleventh_alt2():
 	x,i,j=1,0,0; n=int(input())
 	a=[[0]*n for i in range (n)]
 	a[n//2][n//2]=n**2
@@ -377,7 +377,7 @@ def twentythree_alt2():
 		print(*i)
 	return 0
 
-def twentythree_alt3():
+def eleventh_alt3():
 	n = int(input())
 	m = [[0] * n for i in range(n)]
 	i, j, di, dj = 0, 0, 0, 1
@@ -389,7 +389,7 @@ def twentythree_alt3():
 	[print(*i) for i in m]
 	return 0
 
-def twentythree_alt4():
+def eleventh_alt4():
 	n = int(input())
 	m = [[0 for i in range(n)] for j in range(n)]
 	for k in range(n, 0, -1): 
@@ -405,7 +405,7 @@ def twentythree_alt4():
 			print(*i)
 	return 0
 
-def twentythree_alt5():
+def eleventh_alt5():
 	n = int(input())
 	for i in range (n):
 		for j in range(n):
@@ -417,7 +417,7 @@ def twentythree_alt5():
 		print()
 	return 0
 
-def twentythree_alt6():
+def eleventh_alt6():
 	n = int(input())
 	num = [[0] * n for y in range(n)]
 	y, x, dy, dx = 0, 0, 0, 1
@@ -433,10 +433,6 @@ def twentythree_alt6():
 	[print(*i) for i in num]
 	return 0
 
-def twentythree_alt7():
-	
-	return 0
-
 # Инициализировать матрицу нулями
 def cr_clean_matrix():
 	n = 5
@@ -446,27 +442,5 @@ def cr_clean_matrix():
 
 
 if __name__ == '__main__':
-# 	pass
-# 	thirdteenth()
-# 	matrix()
-# 	fifteenth()
-#  	sixteenth()
-#  	seventeenth()
-# 	eightteenth()
-# 	nineteenth()
-# 	twentieth()
-# 	twentyfirst()
-	twentytwo()
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	pass
 	
