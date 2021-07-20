@@ -12,8 +12,11 @@ passwds = ["admin", "Admin"]
 part = "SqBiqAirTgYvWhEd.s4ve+heW0r1dhaWyE3gHz"
 salt = "Qui.P1zz49OM4sterX3y"
 
+count = 0
 for word in passwds:
-	outp = subprocess.run("openssl passwd -6 -salt {} {}".format(salt, word), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+	count += 1
+	outp = subprocess.run(f"openssl passwd -6 -salt \'{salt}\' \'{word}\'", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	if part in str(outp.stdout):
-		print("{}: {}".format(word, outp.stdout))
+		print(f"{word}: {outp.stdout}")
 		break
+	print(f"attempt #{count} unfortunately")
