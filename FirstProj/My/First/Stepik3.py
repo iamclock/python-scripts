@@ -3,14 +3,14 @@ Created on 4 июл. 2021 г.
 
 @author: iamclock
 '''
-from My.First.Stepik import second
 
 # 	(x if x % 2 else None for x in items)
 
-'''
-Удаление нечётных элементов из списка, изменение чётных делением в два раза
-'''
+
 def first(l):
+	'''
+	Удаление нечётных элементов из списка, изменение чётных делением в два раза
+	'''
 # 	l = [1, 3, 7]
 # 	l = [1, 2, 3, 4, 5, 6, 7]
 	n = len(l)
@@ -54,6 +54,9 @@ def first_alt5(l):
 
 # def update_dictionary(d, key, value):
 def second():
+	'''
+	
+	'''
 	d = {}
 	key = 1
 	value = -1
@@ -100,6 +103,9 @@ a aa abC aa ac abc bcd a
 a A a
 '''
 def third():
+	'''
+	
+	'''
 # 	words = [x.lower() for x in input().split()] # upper()
 	dic = {}
 	for word in input().lower().split():
@@ -160,6 +166,9 @@ def third_alt8():
 	return 0
 
 def fourth():
+	'''
+	
+	'''
 	dic = {}
 	for _ in range(int(input())):
 		x = int(input())
@@ -175,6 +184,9 @@ def fourth_alt1():
 	return 0
 
 def fifth():
+	'''
+	
+	'''
 	import os
 	fpath, fname = '.', 'dataset_3363_2.txt'
 	with open(os.path.join(fpath, fname), "r") as inf:
@@ -225,6 +237,9 @@ def fifth_alt4():
 	return 0
 
 def sixth():
+	'''
+	
+	'''
 	import os
 	fpath, fname = '.', 'dataset_3363_3.txt'
 	counter = {}
@@ -283,6 +298,9 @@ def sixth_alt3():
 	return 0
 
 def seventh():
+	'''
+	
+	'''
 	import os
 	fpath, fname = '.', 'dataset_3363_4.txt'
 	foutpath, foutname = '.', 'seventh.txt'
@@ -356,6 +374,9 @@ def seventh_alt5():
 	return 0
 
 def eighth():
+	'''
+	подсчёт окружности круга
+	'''
 	from math import pi
 	print(pi*2*float(input()))
 	return 0
@@ -366,15 +387,61 @@ def eighth_alt1():
 	return 0
 
 def nineth():
+	'''
+	вывод только аргументов вызванной программы
+	'''
 	from sys import argv
 	print(*argv[1:])
 	return 0
 
-def temp10():
+def tenth():
+	'''
+	Подсчёт строк в скачанном файле
+	'''
+	from requests import get
+	from os import path
+	fpath, fname = '.', 'dataset_3378_2.txt'
+	with open(path.join(fpath, fname), "r") as inf: resp = get( inf.read().strip() )
+	print(len(resp.text.splitlines()))
 	return 0
 
-def temp11():
+def tenth_alt1():
+	import requests
+	with open('dataset_3378_2.txt', "r") as inf: r = requests.get(inf.readline().strip())
+	print(len(r.text.splitlines()))
 	return 0
+
+def tenth_alt2():
+	from requests import get
+	with open('datasets\dataset_3378_2.txt', "r") as inf: resp = get( inf.read().strip() )
+	resp.text.count('\n')
+	return 0
+
+# Поиск файла с текстом, из файлов с ссылками на другие файлы с ссылками 
+def eleventh():
+	'''
+	
+	'''
+	from requests import get
+	from os import path
+	fpath, fname = '.', 'dataset_3378_3.txt'
+	url = "https://stepic.org/media/attachments/course67/3.6.3/" 
+	with open(path.join(fpath, fname), "r") as inf:
+		resp = get( inf.read().strip() )
+	while "We" not in resp.text[:2]:
+		resp = get( url + resp.text.strip() )
+		print('.', end='', sep='')
+	print('\n' + resp.text)
+	return 0
+
+def eleventh_alt1():
+	import requests
+	url, name = 'https://stepic.org/media/attachments/course67/3.6.3/', '699991.txt'
+	while name[:2] != 'We':
+		name = requests.get(url + name).text
+	print(name)
+	return 0
+
 
 def temp12():
 	return 0
@@ -395,8 +462,9 @@ if __name__ == '__main__':
 # 	third()
 # 	fifth()
 # 	sixth()
-	seventh()
-	
+# 	seventh()
+# 	tenth()
+	eleventh()
 	
 	
 	pass
