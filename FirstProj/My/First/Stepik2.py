@@ -214,16 +214,15 @@ def eighth_alt():
 # Вывод индексов искомого объекта
 def nineth():
 	lst, x = input().split(), input()
-	is_found = False
-	for i,val in enumerate(lst):
-		if x == val:
-			is_found = True
-			print(i, end=' ')
-	if not is_found:
+	try: start = lst.index(x)
+	except ValueError:
 		print("Отсутствует")
+		return 0
+	for i in range(start, len(lst)):
+		if x == lst[i]: print(i, end=' ')
 	return 0
 
-def nineth_alt():
+def nineth_alt1():
 	l, n = [int(i) for i in input().split()], int(input())
 	print(*[x for x in range(len(l)) if l[x]==n] if n in l else ["Отсутствует"])
 	##
@@ -240,6 +239,15 @@ def nineth_alt():
 	print(*idx) if idx else print("Отсутствует")
 	return 0
 
+def nineth_alt2():
+	lst, x = input().split(), input()
+	is_found = False
+	for i,val in enumerate(lst):
+		if x == val:
+			is_found = True
+			print(i, end=' ')
+	if not is_found: print("Отсутствует")
+	return 0
 
 '''
 9 5 3
